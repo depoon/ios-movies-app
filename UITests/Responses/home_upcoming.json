@@ -1,0 +1,52 @@
+{
+    "results": [
+        {
+            "vote_count": 993,
+            "id": 345887,
+            "video": false,
+            "vote_average": 6.3,
+            "title": "The Equalizer 2",
+            "popularity": 169.737,
+            "poster_path": "/cQvc9N6JiMVKqol3wcYrGshsIdZ.jpg",
+            "original_language": "en",
+            "original_title": "The Equalizer 2",
+            "genre_ids": [
+                53,
+                28,
+                80
+            ],
+            "backdrop_path": "/z7noaCJ4KtmhwHw7QcNtnMMo4Qy.jpg",
+            "adult": false,
+            "overview": "Robert McCall, who serves an unflinching justice for the exploited and oppressed, embarks on a relentless, globe-trotting quest for vengeance when a long-time girl friend is murdered.",
+            "release_date": "2018-07-19"
+        },
+        {
+            "vote_count": 62,
+            "id": 507569,
+            "video": false,
+            "vote_average": 5.6,
+            "title": "The Seven Deadly Sins: Prisoners of the Sky",
+            "popularity": 29.601,
+            "poster_path": "/r6pPUVUKU5eIpYj4oEzidk5ZibB.jpg",
+            "original_language": "en",
+            "original_title": "劇場版 七つの大罪 天空の囚われ人",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                16
+            ],
+            "backdrop_path": "/uKwOX7MtKlAaGeCQe6c4jc1vZpj.jpg",
+            "adult": false,
+            "overview": "Traveling in search of the rare ingredient, “sky fish”  Meliodas and Hawk arrive at a palace that floats above the clouds. The people there are busy preparing a ceremony, meant to protect their home from a ferocious beast that awakens once every 3,000 years. But before the ritual is complete, the Six Knights of Black—a Demon Clan army—removes the seal on the beast, threatening the lives of everyone in the Sky Palace.",
+            "release_date": "2018-08-18"
+        }
+    ],
+    "page": 1,
+    "total_results": 209,
+    "dates": {
+        "maximum": "2018-12-09",
+        "minimum": "2018-11-24"
+    },
+    "total_pages": 11
+}

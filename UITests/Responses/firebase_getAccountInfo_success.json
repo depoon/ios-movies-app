@@ -1,0 +1,23 @@
+{
+    "kind": "identitytoolkit#GetAccountInfoResponse",
+    "users": [
+        {
+            "localId": "WNlnfPZ9xFP7lybIdvz2iELxJqa2",
+            "email": "alpha2@gmail.com",
+            "passwordHash": "UkVEQUNURUQ=",
+            "emailVerified": false,
+            "passwordUpdatedAt": 1545930185000,
+            "providerUserInfo": [
+                {
+                    "providerId": "password",
+                    "federatedId": "alpha2@gmail.com",
+                    "email": "alpha2@gmail.com",
+                    "rawId": "alpha2@gmail.com"
+                }
+            ],
+            "validSince": "1545930185",
+            "lastLoginAt": "1546050761000",
+            "createdAt": "1545930185000"
+        }
+    ]
+}
