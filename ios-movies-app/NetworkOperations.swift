@@ -3,7 +3,7 @@
 //  ios-movies-app
 //
 //  Created by mkamhawi on 8/19/17.
-//  Copyright © 2017 Mohamed Elkamhawi. All rights reserved.
+//  Copyright © 2017 Mohamed El-Kamhawi. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,14 @@ import ObjectMapper
 
 class NetworkOperations {
     
-    private let baseUrl: String = "https://api.themoviedb.org/3/movie"
+    //private let baseUrl: String = "https://api.themoviedb.org/3/movie"
+    private var baseUrl: String {
+        if let port = ProcessInfo.infoValue(for: "port") {
+            return "http://localhost:\(port)/3/movie"
+        }
+        return "https://api.themoviedb.org/3/movie"
+    }
+    
     public private(set) var posterBaseUrl: String = "https://image.tmdb.org/t/p/w185"
     public private(set) var youtubeBaseUrl: String = "https://www.youtube.com/watch"
     private let apiKey: String
@@ -40,7 +47,7 @@ class NetworkOperations {
                     movieCollection?.insert(into: category, deleteOldData: page == 1, completionHandler: completionHandler)
                 case .failure(let error):
                     print("Error: NetworkOperation getMovies: \(error)")
-                
+                    
                 }
             })
     }

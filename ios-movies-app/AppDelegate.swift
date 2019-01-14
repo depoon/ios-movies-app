@@ -13,10 +13,16 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    let appDelegates: [UIApplicationDelegate] =
+        [InterceptorAppDelegate(),
+         FirebaseAppDelegate(),
+         AnalyticsAppDelegate()]
+    
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.appDelegates.forEach({
+            let _ = $0.application?(application, didFinishLaunchingWithOptions: launchOptions)
+        })
         return true
     }
 

@@ -3,12 +3,13 @@
 //  ios-movies-app
 //
 //  Created by mkamhawi on 8/19/17.
-//  Copyright © 2017 Mohamed Elkamhawi. All rights reserved.
+//  Copyright © 2017 Mohamed El-Kamhawi. All rights reserved.
 //
 
 import UIKit
 import CoreData
 import Kingfisher
+import FirebaseAuth
 
 class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -46,11 +47,26 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
         self.automaticallyAdjustsScrollViewInsets = false
         onCategoryChanged()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.addTarget(self, action: #selector(MovieGrid.refreshMovieData), for: UIControlEvents.valueChanged)
+        refresher.addTarget(self, action: #selector(MovieGrid.refreshMovieData), for: UIControl.Event.valueChanged)
         movieCollectionView.addSubview(refresher)
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(self.didTapLogin))
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshState()
+    }
+    
+    func refreshState() {
+        if let _ = Auth.auth().currentUser {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.didTapLogout))
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(self.didTapLogin))
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,13 +88,13 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func setupViewForCompactWidth() {
         let font = UIFont.systemFont(ofSize: 10)
-        categorySegmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+        categorySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         updateCollectionCellSize(numberOfCellsPerRow: 3)
     }
-
+    
     func setupViewForRegularWidth() {
         let font = UIFont.systemFont(ofSize: 14)
-        categorySegmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+        categorySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         updateCollectionCellSize(numberOfCellsPerRow: 5)
     }
     
@@ -100,7 +116,7 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies?.count ?? 0
     }
@@ -108,6 +124,12 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = "MovieItem"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        
+        cell.contentView.accessibilityIdentifier = nil
+        if let movie = movies?[indexPath.item] {
+            cell.contentView.accessibilityIdentifier = movie.title
+        }
+        
         let movieImageView: UIImageView = cell.viewWithTag(100) as! UIImageView
         if let posterPath = movies?[indexPath.item].posterPath {
             let posterUrl = URL(string: networkOperations.posterBaseUrl + posterPath)
@@ -123,7 +145,7 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
         if let numberOfMovies = movies?.count {
             if indexPath.item == numberOfMovies - 1 {
                 self.page += 1
-                downloadMovieData()
+                //downloadMovieData()
             }
         }
     }
@@ -137,7 +159,7 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
             }
         }
     }
-
+    
     
     func loadSavedMovieData() -> Bool {
         let request: NSFetchRequest<Movie> = Movie.fetchRequest()
@@ -178,5 +200,22 @@ class MovieGrid: UIViewController, UICollectionViewDataSource, UICollectionViewD
     @objc func refreshMovieData() {
         self.page = 1
         self.downloadMovieData()
+    }
+    
+    @objc func didTapLogin() {
+        let loginViewController = LoginViewController.initFromStoryboard()
+        let vc = UINavigationController(rootViewController: loginViewController)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func didTapLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.refreshState()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
     }
 }

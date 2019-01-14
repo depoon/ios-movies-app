@@ -8,5 +8,20 @@ target 'ios-movies-app' do
   # Pods for ios-movies-app
   pod 'Alamofire', '~> 4.7'
   pod 'ObjectMapper', '~> 3.3'
-  pod 'Kingfisher', '~> 4.9'
+  pod 'Kingfisher', '~> 4.10'
+
+  pod 'NetworkInterceptor'
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+  pod 'GoogleAnalytics'
+end
+
+target 'UITests' do
+	use_frameworks!
+  pod 'SwiftLocalhost'
+  pod 'GzipSwift'
+  pod 'URLRequest-cURL' 
+
 end
