@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-QR-ANs">
-                                <rect key="frame" x="0.0" y="105" width="414" height="631"/>
+                                <rect key="frame" x="4" y="105" width="406" height="631"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ddK-5c-VCK">
                                     <size key="itemSize" width="150" height="200"/>
@@ -47,7 +47,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="TKi-aQ-U1s">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="406" height="631"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </activityIndicatorView>
@@ -94,8 +94,8 @@
                         <constraints>
                             <constraint firstItem="Srg-DD-gfv" firstAttribute="centerX" secondItem="fXA-QR-ANs" secondAttribute="centerX" id="Dm5-UR-fbe"/>
                             <constraint firstItem="fXA-QR-ANs" firstAttribute="bottom" secondItem="46I-Tg-EGI" secondAttribute="top" id="VPO-fU-4yb"/>
-                            <constraint firstAttribute="trailing" secondItem="fXA-QR-ANs" secondAttribute="trailing" id="bvB-yw-KQf"/>
-                            <constraint firstItem="fXA-QR-ANs" firstAttribute="leading" secondItem="X1e-QZ-agK" secondAttribute="leading" id="d3Y-cT-tCa"/>
+                            <constraint firstAttribute="trailing" secondItem="fXA-QR-ANs" secondAttribute="trailing" constant="4" id="bvB-yw-KQf"/>
+                            <constraint firstItem="fXA-QR-ANs" firstAttribute="leading" secondItem="X1e-QZ-agK" secondAttribute="leading" constant="4" id="d3Y-cT-tCa"/>
                             <constraint firstItem="Srg-DD-gfv" firstAttribute="top" secondItem="6OJ-5R-zR3" secondAttribute="bottom" constant="8" id="jc1-wO-evl"/>
                             <constraint firstItem="fXA-QR-ANs" firstAttribute="top" secondItem="Srg-DD-gfv" secondAttribute="bottom" constant="8" id="ryP-On-sLm">
                                 <variation key="heightClass=regular-widthClass=compact" constant="5"/>

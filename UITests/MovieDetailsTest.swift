@@ -27,13 +27,13 @@ class MovieDetailsTest: XCTestCase {
     func testDetails() {
         self.localhostServer.route(method: .GET,
                                    path: "/3/movie/popular",
-                                   responseJsonFileName: "home_popular")
+                                   responseData: ResponseDataFactory.responseData(filename: "home_popular"))
         self.localhostServer.route(method: .GET,
                                    path: "/3/movie/upcoming",
-                                   responseJsonFileName: "home_upcoming")
+                                   responseData: ResponseDataFactory.responseData(filename: "home_upcoming"))
         self.localhostServer.route(method: .GET,
                                    path: "/3/movie/345887",
-                                   responseJsonFileName: "movie_details_equalizer")
+                                   responseData: ResponseDataFactory.responseData(filename: "movie_details_equalizer"))
         let app = XCUIApplication()
         app.launchArguments = ["port:\(self.localhostServer.portNumber)"]
         app.launch()
