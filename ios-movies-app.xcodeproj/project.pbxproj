@@ -30,7 +30,6 @@
 		1CCFCE7921ECFB7B006557F5 /* MovieListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7521ECFB7B006557F5 /* MovieListTest.swift */; };
 		1CCFCE7A21ECFB7B006557F5 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7621ECFB7B006557F5 /* LoginTest.swift */; };
 		1CCFCE7B21ECFB7B006557F5 /* RegistrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7721ECFB7B006557F5 /* RegistrationTest.swift */; };
-		1CCFCE8021ECFBC8006557F5 /* LocalhostServer+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7D21ECFBC8006557F5 /* LocalhostServer+Router.swift */; };
 		1CCFCE8121ECFBC8006557F5 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7E21ECFBC8006557F5 /* XCUIElement+Extensions.swift */; };
 		1CCFCE8221ECFBC8006557F5 /* URLRequestCustomComparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7F21ECFBC8006557F5 /* URLRequestCustomComparable.swift */; };
 		1CCFCE8521ECFCEC006557F5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE8321ECFCEC006557F5 /* RegistrationViewController.swift */; };
@@ -42,6 +41,7 @@
 		1CCFCE9121ECFD74006557F5 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE8F21ECFD74006557F5 /* UIViewController+DisplayAlert.swift */; };
 		1CCFCE9421ECFEC7006557F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CCFCE9321ECFEC6006557F5 /* GoogleService-Info.plist */; };
 		1CCFCEA321ED001C006557F5 /* Responses in Resources */ = {isa = PBXBuildFile; fileRef = 1CCFCEA221ED001C006557F5 /* Responses */; };
+		1CCFCEA4220B496A006557F5 /* ResponseDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFCE7D21ECFBC8006557F5 /* ResponseDataFactory.swift */; };
 		8A0CB3DC1BE60E9426FF1AC6 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7ED6D099AB6517141BEEE /* Pods_UITests.framework */; };
 		F6363747A47B808D63F7E75D /* Pods_ios_movies_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F98DB806AA4EA219E57AC08 /* Pods_ios_movies_app.framework */; };
 /* End PBXBuildFile section */
@@ -86,7 +86,7 @@
 		1CCFCE7521ECFB7B006557F5 /* MovieListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListTest.swift; sourceTree = "<group>"; };
 		1CCFCE7621ECFB7B006557F5 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		1CCFCE7721ECFB7B006557F5 /* RegistrationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTest.swift; sourceTree = "<group>"; };
-		1CCFCE7D21ECFBC8006557F5 /* LocalhostServer+Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalhostServer+Router.swift"; sourceTree = "<group>"; };
+		1CCFCE7D21ECFBC8006557F5 /* ResponseDataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataFactory.swift; sourceTree = "<group>"; };
 		1CCFCE7E21ECFBC8006557F5 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		1CCFCE7F21ECFBC8006557F5 /* URLRequestCustomComparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestCustomComparable.swift; sourceTree = "<group>"; };
 		1CCFCE8321ECFCEC006557F5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		1CCFCE7C21ECFBC8006557F5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1CCFCE7D21ECFBC8006557F5 /* LocalhostServer+Router.swift */,
+				1CCFCE7D21ECFBC8006557F5 /* ResponseDataFactory.swift */,
 				1CCFCE7E21ECFBC8006557F5 /* XCUIElement+Extensions.swift */,
 				1CCFCE7F21ECFBC8006557F5 /* URLRequestCustomComparable.swift */,
 			);
@@ -482,13 +482,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCFCEA4220B496A006557F5 /* ResponseDataFactory.swift in Sources */,
 				1CCFCE8221ECFBC8006557F5 /* URLRequestCustomComparable.swift in Sources */,
 				1CCFCE7921ECFB7B006557F5 /* MovieListTest.swift in Sources */,
 				1CCFCE8121ECFBC8006557F5 /* XCUIElement+Extensions.swift in Sources */,
 				1CCFCE7821ECFB7B006557F5 /* MovieDetailsTest.swift in Sources */,
 				1CCFCE7A21ECFB7B006557F5 /* LoginTest.swift in Sources */,
 				1CCFCE7B21ECFB7B006557F5 /* RegistrationTest.swift in Sources */,
-				1CCFCE8021ECFBC8006557F5 /* LocalhostServer+Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

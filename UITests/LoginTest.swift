@@ -34,13 +34,13 @@ class LoginTest: XCTestCase {
         
         self.localhostServer.route(method: .GET,
                                    path: "/3/movie/popular",
-                                   responseJsonFileName: "home_popular")
+                                   responseData: ResponseDataFactory.responseData(filename: "home_popular"))
         self.localhostServer.route(method: .POST,
                                    path: "/identitytoolkit/v3/relyingparty/verifyPassword",
-                                   responseJsonFileName: "firebase_verifyPassword_success")
+                                   responseData: ResponseDataFactory.responseData(filename: "firebase_verifyPassword_success"))
         self.localhostServer.route(method: .POST,
                                    path: "/identitytoolkit/v3/relyingparty/getAccountInfo",
-                                   responseJsonFileName: "firebase_getAccountInfo_success")
+                                   responseData: ResponseDataFactory.responseData(filename: "firebase_getAccountInfo_success"))
         
         let app = XCUIApplication()
         app.launchArguments = ["port:\(self.localhostServer.portNumber)",

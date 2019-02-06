@@ -20,8 +20,7 @@ end
 
 target 'UITests' do
 	use_frameworks!
-  pod 'SwiftLocalhost'
-  pod 'GzipSwift'
+  pod 'SwiftLocalhost','~> 0.0.7'
   pod 'URLRequest-cURL' 
 
 end
